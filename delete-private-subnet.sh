@@ -13,19 +13,19 @@ ibmcloud pi ws target "$service_crn"
 
 #########################  Script 3: Delete private subnet  ##########################   
 
-existing_subnet_crn=""
+subnet_id=""
 
-subnets_output=$(ibmcloud pi networks --long)
-existing_subnet_crn=$(echo "$subnets_output" | awk -v subnet="$IBM_POWER_SUBNET_NAME" '$2 == subnet {print $1}')
+subnets_output=$(ibmcloud pi subnet list)
+subnet_id=$(echo "$subnets_output" | awk -v subnet="$IBM_POWER_SUBNET_NAME" '$2 == subnet {print $1}')
 
-if [ -n "$existing_subnet_crn" ]; then
-  if ibmcloud pi network-delete "$existing_subnet_crn"; then
+if [ -n "$subnet_id" ]; then
+  if ibmcloud pi subnet delete "$subnet_id"; then
     echo "Subnet deleted successfully."
   else
     echo "Error: Unable to delete subnet."
+    exit 1
   fi
 else
   echo "Subnet does not exist."
+  exit 1
 fi
-
-ibmcloud logout
