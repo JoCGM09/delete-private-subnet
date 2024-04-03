@@ -1,0 +1,22 @@
+{
+    "job_name": "$NOMBRE_DEL_JOB",
+    "name": "$NOMBRE_DEL_JOB_RUN",
+    "id": "ced5039e-b1d3-4c51-aa29-8dbde3531ace",
+    "project_id": "230828b4-4f15-40a9-b183-1268c6ab88d5",
+    "created_at": "2022-11-15T22:06:21+01:00",
+    "resource_type": "job_run_v2",
+    "href": "https://api.us-east.codeengine.cloud.ibm.com/v2/projects/230828b4-4f15-40a9-b183-1268c6ab88d5/jobs/my-job-run-1",
+    "image_reference": "icr.io/codeengine/helloworld",
+    "run_arguments": [],
+    "run_commands": [],
+    "run_mode": "task",
+    "run_volume_mounts": [],
+    "run_env_variables": [],
+    "scale_array_spec": "0",
+    "scale_max_execution_time": 7200,
+    "scale_retry_limit": 3,
+    "scale_cpu_limit": "1",
+    "scale_memory_limit": "4G",
+    "scale_ephemeral_storage_limit": "400M",
+    "status": "completed"
+  }
